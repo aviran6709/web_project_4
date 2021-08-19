@@ -8,6 +8,7 @@
 }
 @media screen and (max-width: 630px) {
   .profile__list {
+    width: 100%;
     justify-content: center;
     align-items: center;
   }
