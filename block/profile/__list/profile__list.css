@@ -1,0 +1,14 @@
+.profile__list {
+  margin: 0;
+  padding: 0;
+  width: calc(100% - 150px - 168.75px);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 630px) {
+  .profile__list {
+    justify-content: center;
+    align-items: center;
+  }
+}

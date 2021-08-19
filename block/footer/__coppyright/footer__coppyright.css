@@ -1,0 +1,16 @@
+.footer__coppyright {
+  margin: 0px;
+  padding: 0px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
+}
+
+@media screen and (max-width: 630px) {
+  .footer__coppyright {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

@@ -1,0 +1,20 @@
+.popup__input {
+  width: 100%;
+  margin: 0 auto 30px;
+  border: none;
+  border-bottom: solid black 1px;
+}
+@media screen and (max-width: 500px) {
+  .popup__input_hobby {
+    margin-bottom: 0px;
+  }
+}
+
+.popup__input::placeholder {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}

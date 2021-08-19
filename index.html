@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Around The U.S.</title>
+  </head>
+  <body class="root">
+    <div class="page">
+      <header class="header">
+        <img class="logo" src="./images/logo.svg" alt="logo" />
+      </header>
+      <main class="main">
+        <div class="profile">
+          <div class="profile__image-block">
+            <img
+              class="profile__pic"
+              src="./images/profile-pic.jpg"
+              alt="profile-pic"
+            />
+          </div>
+          <ul class="profile__list">
+            <li class="profile__content">
+              <h1 class="profile__title">Jacques Cousteau</h1>
+
+              <button class="profile__button_pen"></button>
+            </li>
+            <li><p class="profile__hobby">Explorer</p></li>
+          </ul>
+          <button class="profile__buttons_plus"></button>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <img
+              class="card__image"
+              src="./images/Yosemite-Valley.jpg"
+              alt="Yosemite"
+            />
+            <div class="card__content">
+              <h2 class="card__title">Yosemite Valley</h2>
+              <button class="card__like-button"></button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              class="card__image"
+              src="./images/Lake-Louise.jpg"
+              alt="lake from canda bc"
+            />
+            <div class="card__content">
+              <h2 class="card__title">Lake Louise</h2>
+              <button class="card__like-button"></button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              class="card__image"
+              src="./images/Bald-Mountains.jpg"
+              alt="Bald Mountains"
+            />
+            <div class="card__content">
+              <h2 class="card__title">Bald Mountains</h2>
+              <button class="card__like-button"></button>
+            </div>
+          </div>
+          <div class="card">
+            <img class="card__image" src="./images/Latemar.png" alt="Latemar" />
+            <div class="card__content">
+              <h2 class="card__title">Latemar</h2>
+              <button
+                class="card__like-button card__like-button_active"
+              ></button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              class="card__image"
+              src="./images/Vanoise-Nationa-park.png"
+              alt="Vanoise "
+            />
+            <div class="card__content">
+              <h2 class="card__title">Vanoise National Park</h2>
+              <button class="card__like-button"></button>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              class="card__image"
+              src="./images/Lago-di-Braies.png"
+              alt="Lago di Braies"
+            />
+            <div class="card__content">
+              <h2 class="card__title">Lago di Braies</h2>
+              <button class="card__like-button"></button>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer">
+        <p class="footer__coppyright">&copy; 2021 Around The U.S.</p>
+      </footer>
+
+      <div class="popup">
+        <div class="popup__continer">
+          <button class="popup__button_close"></button>
+          <h2 class="popup__title">Edit profile</h2>
+          <form class="popup__content">
+            <!-- need to chenge name -->
+
+            <input
+              class="popup__input popup__input_user_name"
+              type="text"
+              placeholder="Name"
+            />
+            <input
+              class="popup__input popup__input_hobby"
+              type="text"
+              placeholder="About me"
+            />
+          </form>
+          <button class="popup__submit-btn" type="submit">save</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+<!--  popup__input_user_name   use for like button -->
