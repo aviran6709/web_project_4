@@ -18,7 +18,7 @@ used media quarry for breakpoint
 from any device
 and have functionality
 to update name and job
-(https://aviran6709.github.io/web_project_3/index.html)
+(https://aviran6709.github.io/web_project_4/index.html)
 And was created under the guidance of Practicum 100
 (https://www.yandex.com)
 

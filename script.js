@@ -1,7 +1,7 @@
 //declerision
-let editButton = document.querySelector(".profile__button_pen");
+let editButton = document.querySelector(".profile__edit-btn");
 let popUpOpen = document.querySelector(".popup");
-let closeBtn = document.querySelector(".popup__button_close");
+let closeBtn = document.querySelector(".popup__close-btn");
 
 
 //funcsion work when click on edit btn
