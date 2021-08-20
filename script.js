@@ -30,4 +30,16 @@ submitBtn.addEventListener("click",  function(){
     });
 
 
-    
+
+/*
+let cardName = document.querySelector(".profile__title");
+
+    let cardsObject = {
+        "cardTaitl": "los-santos",
+        "cardPhoto": "losSantosPic" ,
+        "like" : false
+    }
+    function addCard(){
+        cardsObject.append(cardsObject[0] = cardName )
+    }
+    */
