@@ -1,0 +1,19 @@
+.card__like-button {
+  box-sizing: border-box;
+  background: url(../../../images/like.svg);
+  cursor: pointer;
+  background-repeat: no-repeat;
+  width: 21px;
+  height: 19px;
+  border: 0;
+  padding-right: 13px;
+}
+.card__like-button:hover {
+  opacity: 0.5;
+}
+
+/*
+  .card__like-button_active {
+    background: url(../web_project_4/images/Union.svg);
+  }
+  */

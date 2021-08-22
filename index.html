@@ -14,22 +14,20 @@
       </header>
       <main class="main">
         <section class="profile">
-          <div class="profile__image-block">
-            <img
-              class="profile__pic"
-              src="./images/profile-pic.jpg"
-              alt="profile-pic"
-            />
-          </div>
-          <ul class="profile__list">
-            <li class="profile__content">
-              <h1 class="profile__title">Jacques Cousteau</h1>
+          <img
+            class="profile__pic"
+            src="./images/profile-pic.jpg"
+            alt="profile-pic"
+          />
 
-              <button class="profile__edit-btn"></button>
-            </li>
-            <li><p class="profile__hobby">Explorer</p></li>
-          </ul>
-          <button class="profile__add-btn"></button>
+          <div class="profile__content">
+            <h1 class="profile__title">Jacques Cousteau</h1>
+
+            <button type="button" class="profile__edit-btn"></button>
+
+            <p class="profile__hobby">Explorer</p>
+          </div>
+          <button type="button" class="profile__add-btn"></button>
         </section>
         <section class="cards">
           <div class="card">
@@ -40,7 +38,7 @@
             />
             <div class="card__content">
               <h2 class="card__title">Yosemite Valley</h2>
-              <button class="card__like-button"></button>
+              <button type="button" class="card__like-button"></button>
             </div>
           </div>
           <div class="card">
@@ -51,7 +49,7 @@
             />
             <div class="card__content">
               <h2 class="card__title">Lake Louise</h2>
-              <button class="card__like-button"></button>
+              <button type="button" class="card__like-button"></button>
             </div>
           </div>
           <div class="card">
@@ -62,16 +60,14 @@
             />
             <div class="card__content">
               <h2 class="card__title">Bald Mountains</h2>
-              <button class="card__like-button"></button>
+              <button type="button" class="card__like-button"></button>
             </div>
           </div>
           <div class="card">
             <img class="card__image" src="./images/Latemar.png" alt="Latemar" />
             <div class="card__content">
               <h2 class="card__title">Latemar</h2>
-              <button
-                class="card__like-button card__like-button_active"
-              ></button>
+              <button type="button" class="card__like-button"></button>
             </div>
           </div>
 
@@ -83,7 +79,7 @@
             />
             <div class="card__content">
               <h2 class="card__title">Vanoise National Park</h2>
-              <button class="card__like-button"></button>
+              <button type="button" class="card__like-button"></button>
             </div>
           </div>
           <div class="card">
@@ -94,7 +90,7 @@
             />
             <div class="card__content">
               <h2 class="card__title">Lago di Braies</h2>
-              <button class="card__like-button"></button>
+              <button type="button" class="card__like-button"></button>
             </div>
           </div>
         </section>
@@ -105,27 +101,34 @@
 
       <div class="popup">
         <div class="popup__continer">
-          <button class="popup__close-btn"></button>
+          <button type="button" class="popup__close-btn"></button>
           <h2 class="popup__title">Edit profile</h2>
-          <form action="#" class="popup__content">
+          <form
+            action="#"
+            method="POST"
+            name="popup-info"
+            class="popup__content"
+          >
             <!-- need to chenge name -->
 
             <input
               class="popup__input popup__input_user_name"
               type="text"
               placeholder="Name"
+              name="user-name"
             />
             <input
-              class="popup__input popup__input_hobby"
+              class="popup__input popup__input-hobby"
               type="text"
               placeholder="About me"
+              name="hobby"
             />
+            <button class="popup__submit-btn" type="submit">Save</button>
           </form>
-          <button class="popup__submit-btn" type="submit">save</button>
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="./scripts/script.js"></script>
   </body>
 </html>
 <!--  popup__input_user_name   use for like button -->

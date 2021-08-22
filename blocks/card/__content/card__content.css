@@ -1,0 +1,7 @@
+.card__content {
+  max-width: 246px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px auto 0;
+}
