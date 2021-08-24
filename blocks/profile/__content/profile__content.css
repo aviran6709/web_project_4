@@ -9,5 +9,12 @@
 @media screen and (max-width: 630px) {
   .profile__content {
     margin: 26px 0 0 0;
+    display: flex;
+    row-gap: 0px;
+    column-gap: 0px;
+    max-width: calc(196px + 28px);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
   }
 }
