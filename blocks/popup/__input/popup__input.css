@@ -13,6 +13,11 @@
   font-size: 14px;
   line-height: 17px;
 }
+
+.popup__input:last-of-type {
+  margin-bottom: 0px;
+}
+
 @media screen and (max-width: 500px) {
   .popup__input:last-of-type {
     margin-bottom: 0px;

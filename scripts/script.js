@@ -8,15 +8,15 @@ let popUpOpen = document.querySelector(".popup");
 let closeBtn = document.querySelector(".popup__close-btn");
 let formElement = document.querySelector(".popup__content");
 let nameInput = document.querySelector(".popup__input_user_name");
-let jobInput =  document.querySelector(".popup__input_hobby");
+let jobInput =  document.querySelector(".popup__input_user_hobby");
 
 function popOpen(){
     popUpOpen.classList.toggle('popup_opened');
     if (popUpOpen.classList.contains('popup_opened')){
-        nameInput.value = profileName.textContent ;
-        jobInput.value = profileHobby.textContent ;
-        console.log(profileName.textContent )
-    };
+        nameInput.value = profileName.textContent;
+        jobInput.value = profileHobby.textContent;
+     
+    }
 }
 
 //funcsion work when click on edit btn
@@ -31,10 +31,10 @@ closeBtn.addEventListener("click",  popOpen);
 
 function handleFormSubmit(evt) {
 evt.preventDefault();
-profileName.textContent = nameInput.value ;
-profileHobby.textContent = jobInput.value ;
+profileName.textContent = nameInput.value;
+profileHobby.textContent = jobInput.value;
 
-popOpen()
+popOpen();
 }
 
 // Connect the handler to the form:
