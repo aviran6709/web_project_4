@@ -2,7 +2,7 @@
 const profileName = document.querySelector(".profile__title");
 const profileHobby = document.querySelector(".profile__hobby");
 const editButton = document.querySelector(".profile__edit-btn");
-const profilePopup  = document.querySelector(".profile_popup");
+const profilePopup  = document.querySelector(".popup_profile");
 //const popup  = document.querySelector(".popup");
 
 const profileCloseBtn = profilePopup.querySelector(".popup__close-btn");
