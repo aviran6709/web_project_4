@@ -1,6 +1,6 @@
 
-let profileName = document.querySelector(".profile__title");
-let profileHobby = document.querySelector(".profile__hobby");
+const profileName = document.querySelector(".profile__title");
+const profileHobby = document.querySelector(".profile__hobby");
 const editButton = document.querySelector(".profile__edit-btn");
 const profilePopup  = document.querySelector(".profile_popup");
 //const popup  = document.querySelector(".popup");
@@ -14,10 +14,10 @@ const popupAddCard = document.querySelector(".popup_add_card");// the popup bloc
 const popupAddBtn = document.querySelector(".profile__add-btn");
 //adding card section
 const popupCloseBtn = document.querySelector(".popup__close-btn_add_card");
-let cardName = document.querySelector(".popup__input_card_title");//adding card title form
-let cardImage = document.querySelector(".popup__input_card_image");//adding card image form
+const cardName = document.querySelector(".popup__input_card_title");//adding card title form
+const cardImage = document.querySelector(".popup__input_card_image");//adding card image form
  const cardSection = document.querySelector(".cards");
-let creatCardForm = document.querySelector(".popup__content_add-card"); //the form elment
+const creatCardForm = document.querySelector(".popup__content_add-card"); //the form elment
  //img popup
  const popupImgeCloseBtn = document.querySelector(".popup__close-btn_img");
  const popupImge = document.querySelector(".popup_img");
@@ -151,7 +151,7 @@ function handleFormSubmitCardAdd(evt) {
     cardSection.prepend(addCard(cardName.value, cardImage.value));  
     cardImage.value = " "
  cardName.value =  " "
-    popupAddCardOpenFunc();
+ toggleAddCardPopup();
     }
 
   creatCardForm.addEventListener("submit",  handleFormSubmitCardAdd);
