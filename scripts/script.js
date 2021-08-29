@@ -119,8 +119,7 @@ function addCard(title, url){
     //delete card by click the btn
 const deleteBtn = cardElement.querySelector(".card__delete-button");
 deleteBtn.addEventListener("click", function (evt) {
-    const eventTarget = evt.target.parentElement//.style.display = "none";
-    cardElement.remove();
+   cardElement.remove();
 });
 //replace the like btn background
 const likeBtn = cardElement.querySelector(".card__like-button");
