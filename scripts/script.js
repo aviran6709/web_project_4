@@ -109,21 +109,21 @@ initialCards.forEach(function (arrElement){
 //#######################################
 function addCard(title, url){
   //  initialCards.unshift({name: title, link: url});
-    let template = document.querySelector(".card-tmp").content.querySelector(".card");
+    const template = document.querySelector(".card-tmp").content.querySelector(".card");
     //creat clone from template of card 
-    let cardElement = template.cloneNode(true);
-    let titleCard = cardElement.querySelector(".card__title").textContent = title;
-    let imageCard = cardElement.querySelector(".card__image");
+    const cardElement = template.cloneNode(true);
+    const titleCard = cardElement.querySelector(".card__title").textContent = title;
+    const imageCard = cardElement.querySelector(".card__image");
     imageCard.src = url;
     imageCard.alt = title ; 
     //delete card by click the btn
-let deleteBtn = cardElement.querySelector(".card__delete-button");
+const deleteBtn = cardElement.querySelector(".card__delete-button");
 deleteBtn.addEventListener("click", function (evt) {
     const eventTarget = evt.target.parentElement//.style.display = "none";
     cardElement.remove();
 });
 //replace the like btn background
-let likeBtn = cardElement.querySelector(".card__like-button");
+const likeBtn = cardElement.querySelector(".card__like-button");
 likeBtn.addEventListener("click", function (evt) {
    const eventTarget = evt.target;
    eventTarget.classList.toggle("card__like-button_dark");  
