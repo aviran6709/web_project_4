@@ -6,7 +6,8 @@ const profilePopup  = document.querySelector(".popup_profile");
 //const popup  = document.querySelector(".popup");
 
 const profileCloseBtn = profilePopup.querySelector(".popup__close-btn");
- 
+const popupClose = document.querySelector(".popup");
+
 const profileForm = profilePopup.querySelector(".popup__content");
 const nameInput = document.querySelector(".popup__input_user_name");
 const jobInput =  document.querySelector(".popup__input_user_hobby");
@@ -155,8 +156,21 @@ function handleFormSubmitCardAdd(evt) {
 
   creatCardForm.addEventListener("submit",  handleFormSubmitCardAdd);
     
+// create array of popups  
+  function keyHandler(evt) {
+      if(evt.key === "Escape" || evt.target.classList.contains("popup")){
+       const popupList = Array.from(document.querySelectorAll(".popup"));
+          popupList.find((popupElement) =>{
+          if (popupElement.classList.contains("popup_opened")){
+            togglePopup(popupElement);
+          }
+   
+        });  
+         
+      }}
 
-
+  document.addEventListener("keydown" , keyHandler);
+ document.addEventListener("click" , keyHandler);
 
 
 

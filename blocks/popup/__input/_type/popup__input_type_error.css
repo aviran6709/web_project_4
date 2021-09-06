@@ -1,0 +1,13 @@
+.popup__input_type_error {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  visibility: hidden;
+  color: #ff0000;
+  margin-bottom: 30px;
+}
+
+.popup__input_type_error:nth-last-child(2) {
+  margin: 0;
+}
