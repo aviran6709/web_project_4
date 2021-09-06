@@ -1,13 +1,10 @@
-
 const profileName = document.querySelector(".profile__title");
 const profileHobby = document.querySelector(".profile__hobby");
 const editButton = document.querySelector(".profile__edit-btn");
 const profilePopup  = document.querySelector(".popup_profile");
 //const popup  = document.querySelector(".popup");
-
 const profileCloseBtn = profilePopup.querySelector(".popup__close-btn");
 const popupClose = document.querySelector(".popup");
-
 const profileForm = profilePopup.querySelector(".popup__content");
 const nameInput = document.querySelector(".popup__input_user_name");
 const jobInput =  document.querySelector(".popup__input_user_hobby");
@@ -17,15 +14,14 @@ const popupAddBtn = document.querySelector(".profile__add-btn");
 const popupCloseBtn = document.querySelector(".popup__close-btn_add_card");
 const cardName = document.querySelector(".popup__input_card_title");//adding card title form
 const cardImage = document.querySelector(".popup__input_card_image");//adding card image form
- const cardSection = document.querySelector(".cards");
+const cardSection = document.querySelector(".cards");
 const creatCardForm = document.querySelector(".popup__content_add-card"); //the form elment
- //img popup
- const popupImgeCloseBtn = document.querySelector(".popup__close-btn_img");
- const popupImge = document.querySelector(".popup_img");
- const popupImgParagraph = document.querySelector(".popup__img-pargraph");
- const imageBig = document.querySelector(".popup__img-big");
-
-
+//img popup
+const popupImageCloseBtn = document.querySelector(".popup__close-btn_img");
+const popupImage = document.querySelector(".popup_img");
+const popupImgParagraph = document.querySelector(".popup__img-pargraph");
+const imageBig = document.querySelector(".popup__img-big");
+const popupList = Array.from(document.querySelectorAll(".popup"));
 
 const initialCards = [
     {
@@ -54,123 +50,114 @@ const initialCards = [
     }
   ];
 
-
 //edit porfile btn func open
 function togglePopup(popup){
-    popup.classList.toggle('popup_opened');
-   
+popup.classList.toggle('popup_opened'); 
 }
 
 //funcsion work when click on edit btn
 editButton.addEventListener("click", function() {
-    togglePopup(profilePopup);
-    if (profilePopup.classList.contains('popup_opened')){
-        nameInput.value = profileName.textContent;
-        jobInput.value = profileHobby.textContent;
-     }
-    }   
-)
-function handleFormSubmit(evt) {
-    evt.preventDefault();
-    profileName.textContent = nameInput.value;
-    profileHobby.textContent = jobInput.value;
-    
-    togglePopup(profilePopup);
-    }
+togglePopup(profilePopup);
+//if (profilePopup.classList.contains('popup_opened')){
+nameInput.value = profileName.textContent;
+jobInput.value = profileHobby.textContent;
+})
+function handleEditProfileFormSubmit(evt) {
+evt.preventDefault();
+profileName.textContent = nameInput.value;
+profileHobby.textContent = jobInput.value;
+togglePopup(profilePopup);
+}
 
 profileCloseBtn.addEventListener("click",function() {
-    togglePopup(profilePopup);
+togglePopup(profilePopup);
 });
 //add card btm func open
-const toggleAddCardPopup = () =>{
-    togglePopup(popupAddCard)}
+const openAddCardPopup = () =>{
+togglePopup(popupAddCard)}
 //funcsion work when click on x btn to close popup
 
-
-
 // add btn
-popupAddBtn.addEventListener("click",  toggleAddCardPopup);
-popupCloseBtn.addEventListener("click",  toggleAddCardPopup);
-//submit btn
-
-
-    
-    // Connect the handler to the form:
-    // it will watch the submit event
-    profileForm.addEventListener("submit", handleFormSubmit);
-
+popupAddBtn.addEventListener("click",  openAddCardPopup);
+popupCloseBtn.addEventListener("click",  openAddCardPopup);
+//submit btn   
+// Connect the handler to the form:
+// it will watch the submit event
+profileForm.addEventListener("submit", handleEditProfileFormSubmit);
 //initialCards func
 //##########################################
 initialCards.forEach(function (arrElement){
-    cardSection.append(addCard(arrElement.name , arrElement.link))
+cardSection.append(addCard(arrElement.name , arrElement.link))
 });
-
 
 // add card function
 //#######################################
 function addCard(title, url){
-  //  initialCards.unshift({name: title, link: url});
-    const template = document.querySelector(".card-tmp").content.querySelector(".card");
-    //creat clone from template of card 
-    const cardElement = template.cloneNode(true);
-    const titleCard = cardElement.querySelector(".card__title").textContent = title;
-    const imageCard = cardElement.querySelector(".card__image");
-    imageCard.src = url;
-    imageCard.alt = title ; 
-    //delete card by click the btn
+//  initialCards.unshift({name: title, link: url});
+const template = document.querySelector(".card-tmp").content.querySelector(".card");
+//creat clone from template of card 
+const cardElement = template.cloneNode(true);
+const titleCard = cardElement.querySelector(".card__title").textContent = title;
+const imageCard = cardElement.querySelector(".card__image");
+imageCard.src = url;
+imageCard.alt = title ; 
+//delete card by click the btn
 const deleteBtn = cardElement.querySelector(".card__delete-button");
 deleteBtn.addEventListener("click", function (evt) {
-   cardElement.remove();
+cardElement.remove();
 });
+
 //replace the like btn background
 const likeBtn = cardElement.querySelector(".card__like-button");
 likeBtn.addEventListener("click", function (evt) {
-   const eventTarget = evt.target;
-   eventTarget.classList.toggle("card__like-button_dark");  
+const eventTarget = evt.target;
+eventTarget.classList.toggle("card__like-button_dark");  
 });
 
-
 imageCard.addEventListener("click", function() {
-         togglePopup(popupImge);
-        imageBig.src = url;
-        popupImgParagraph.textContent = title
- 
-    } );
-
- return cardElement;
+togglePopup(popupImage);
+imageBig.src = url;
+popupImgParagraph.textContent = title;
+imageBig.alt = title;
+} );
+return cardElement;
 }
 
-popupImgeCloseBtn.addEventListener("click" , function() {
-    togglePopup(popupImge);
+popupImageCloseBtn.addEventListener("click" , function() {
+togglePopup(popupImage);
 } );
-
 
 //function for submit add card form
 function handleFormSubmitCardAdd(evt) {
-    evt.preventDefault();
-    cardSection.prepend(addCard(cardName.value, cardImage.value));  
-    cardImage.value = " "
- cardName.value =  " "
- toggleAddCardPopup();
-    }
+evt.preventDefault();
+cardSection.prepend(addCard(cardName.value, cardImage.value));  
+creatCardForm.reset();
+//     cardImage.value = " "
+//  cardName.value =  " "
+openAddCardPopup();
+}
 
-  creatCardForm.addEventListener("submit",  handleFormSubmitCardAdd);
-    
-// create array of popups  
-  function keyHandler(evt) {
-      if(evt.key === "Escape" || evt.target.classList.contains("popup")){
-       const popupList = Array.from(document.querySelectorAll(".popup"));
-          popupList.find((popupElement) =>{
-          if (popupElement.classList.contains("popup_opened")){
-            togglePopup(popupElement);
-          }
-   
-        });  
-         
-      }}
-
-  document.addEventListener("keydown" , keyHandler);
- document.addEventListener("click" , keyHandler);
+creatCardForm.addEventListener("submit",  handleFormSubmitCardAdd);
+//how do i know when is better to declare variable??
+//inside the func or in gloobal-scope?
+function keyHandlerEsc(evt) {
+if(evt.key === "Escape"){
+popupList.find((popupElement) =>{
+if (popupElement.classList.contains("popup_opened")){
+togglePopup(popupElement);
+}
+});          
+}}
+function keyHandler(evt) {
+if( evt.target.classList.contains("popup")){
+popupList.find((popupElement) =>{
+if (popupElement.classList.contains("popup_opened")){
+togglePopup(popupElement);
+}
+});          
+}}
+document.addEventListener("keydown" , keyHandlerEsc);
+document.addEventListener("click" , keyHandler);
 
 
 

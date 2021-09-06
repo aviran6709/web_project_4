@@ -2,6 +2,7 @@
 const showInputError = (formElement, inputElement, errorMessage , config) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.add(config.inputSelector);
+    inputElement.classList.add(config.inputErrorClass);
     errorElement.textContent = errorMessage;
     errorElement.classList.add(config.errorClass);
 
@@ -11,6 +12,7 @@ const showInputError = (formElement, inputElement, errorMessage , config) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
     inputElement.classList.remove(config.inputSelector);
     errorElement.classList.remove(config.errorClass);
+    inputElement.classList.remove("popup__input_type_error");
     errorElement.textContent = " ";
   };
   
@@ -24,14 +26,12 @@ const showInputError = (formElement, inputElement, errorMessage , config) => {
 
   const toggleButtonState = (inputElement, buttonElement,config) => {
     if (!hasInvalidInput(inputElement)) {
-       
      buttonElement.classList.remove(config.inactiveButtonClass);
      buttonElement.disabled = false
     } else {
       buttonElement.classList.add(config.inactiveButtonClass);
       buttonElement.disabled = "disabled"
     }
-   
   };
 
   
@@ -48,13 +48,16 @@ const showInputError = (formElement, inputElement, errorMessage , config) => {
 
   const enableValidation = (config) => {
      const formList = Array.from(document.querySelectorAll(config.formSelector)); 
-     
     formList.forEach((formElement) => {
     formElement.addEventListener("submit", (evt) => {
       evt.preventDefault( );
     });
     const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
     const btnSubmit = formElement.querySelector(config.submitButtonSelector);
+    if(btnSubmit.hasAttribute("disabled")){
+        btnSubmit.classList.add(config.inactiveButtonClass);
+       
+        }
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", function () {
         checkInputValidity(formElement, inputElement , config);
