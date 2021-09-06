@@ -1,4 +1,4 @@
-.popup__input_type_error {
+.popup__input-error {
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -8,6 +8,6 @@
   margin-bottom: 30px;
 }
 
-.popup__input_type_error:nth-last-child(2) {
+.popup__input-error:nth-last-child(2) {
   margin: 0;
 }
