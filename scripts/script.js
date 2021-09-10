@@ -1,6 +1,3 @@
-import {toggleButtonState} from './validate.js';
-import {validObject} from './validate.js';
-
 const profileName = document.querySelector(".profile__title");
 const profileHobby = document.querySelector(".profile__hobby");
 const editButton = document.querySelector(".profile__edit-btn");
@@ -26,7 +23,6 @@ const popupImage = document.querySelector(".popup_img");
 const popupImgParagraph = document.querySelector(".popup__img-pargraph");
 const imageBig = document.querySelector(".popup__img-big");
 const popupList = Array.from(document.querySelectorAll(".popup"));
-
 const initialCards = [
     {
       name: "Yosemite Valley",
@@ -53,13 +49,17 @@ const initialCards = [
       link: "https://code.s3.yandex.net/web-code/lago.jpg"
     }
   ];
-
-//edit porfile btn func open
-function togglePopup(popup){
-popup.classList.toggle('popup_opened'); 
-
-}
-
+  function togglePopup(popup){
+    popup.classList.toggle('popup_opened'); 
+    if (popup.classList.contains("popup_opened")){
+    document.addEventListener("click" , eventListenerCloseClick);
+    document.addEventListener("keydown" , eventListenerCloseEsc);
+    }
+    else{
+      document.removeEventListener("click" , eventListenerCloseClick);
+      document.removeEventListener("keydown" , eventListenerCloseEsc);
+    }
+    }
 //funcsion work when click on edit btn
 editButton.addEventListener("click", function() {
 togglePopup(profilePopup);
@@ -73,7 +73,6 @@ profileName.textContent = nameInput.value;
 profileHobby.textContent = jobInput.value;
 togglePopup(profilePopup);
 }
-
 profileCloseBtn.addEventListener("click",function() {
 togglePopup(profilePopup);
 });
@@ -87,14 +86,10 @@ const openAddCardPopup = () =>{
   togglePopup(popupAddCard)  
   creatCardForm.reset(); 
   }
-
 //funcsion work when click on x btn to close popup
-
 // add btn
 popupAddBtn.addEventListener("click",  function () {
 openAddCardPopup();
-
-
 });
 popupCloseBtn.addEventListener("click",  openAddCardPopup);
 //submit btn   
@@ -117,7 +112,6 @@ const titleCard = cardElement.querySelector(".card__title").textContent = title;
 const imageCard = cardElement.querySelector(".card__image");
 imageCard.src = url;
 imageCard.alt = title ; 
-
 
 //delete card by click the btn
 const deleteBtn = cardElement.querySelector(".card__delete-button");
@@ -151,14 +145,9 @@ evt.preventDefault();
 cardSection.prepend(addCard(cardName.value, cardImage.value)); 
 creatCardForm.reset(); 
 openAddCardPopup();
-
 }
 creatCardForm.addEventListener("submit",  handleFormSubmitCardAdd);
-//how do i know when is better to declare variable??
-//inside the func or in gloobal-scope?
-
-
-document.addEventListener("keydown" , function (evt) {
+function eventListenerCloseEsc(evt){
   if(evt.key === "Escape"){
     popupList.find((popupElement) =>{
     if (popupElement.classList.contains("popup_opened")){
@@ -166,14 +155,10 @@ document.addEventListener("keydown" , function (evt) {
     creatCardForm.reset(); 
     }
     });          
-    }
-});
-document.addEventListener("click" ,function (evt) {
+}}
+function eventListenerCloseClick(evt){
   if(evt.target.classList.contains("popup")){
     popupList.find((popupElement) =>{
     if (popupElement.classList.contains("popup_opened")){
     togglePopup(popupElement);
-    }
-    });    
-  }
-});
+    }})}}
