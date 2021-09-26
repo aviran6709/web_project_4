@@ -162,19 +162,16 @@
             class="popup__content popup__content_add-card popup__form"
           >
             <input
-              id="form__inputinput_card-title"
+              id="input_card-title"
               class="popup__input popup__input_card_title"
               type="text"
+              required
               placeholder="Title"
               name="card-title"
-              required
               minlength="1"
               maxlength="30"
             />
-            <span
-              id="form__input input_card-title-error"
-              class="popup__input-error"
-            ></span>
+            <span id="input_card-title-error" class="popup__input-error"></span>
             <input
               id="form__input_card-image"
               class="popup__input popup__input_card_image"
@@ -190,8 +187,8 @@
             ></span>
             <button
               class="popup__submit-btn popup__button popup__button-add"
-              disabled
               type="submit"
+              disabled
             >
               Create
             </button>
@@ -222,7 +219,8 @@
       </template>
     </div>
     <script type="module" src="scripts/script.js"></script>
-    <script type="module" src="./scripts/validate.js"></script>
+    <script type="module" src="./scripts/FormValidator.js"></script>
+    <script type="module" src="./scripts/Card.js"></script>
   </body>
 </html>
 <!--  popup__input_user_name   use for like button -->

@@ -1,3 +1,16 @@
+import Card from './Card.js';
+ import FormValidator from './FormValidator.js';
+
+
+
+const settingsObject = {
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible"
+    };
 const profileName = document.querySelector(".profile__title");
 const profileHobby = document.querySelector(".profile__hobby");
 const editButton = document.querySelector(".profile__edit-btn");
@@ -49,6 +62,11 @@ const initialCards = [
       link: "https://code.s3.yandex.net/web-code/lago.jpg"
     }
   ];
+  const addCardValitiy = new FormValidator(settingsObject , profilePopup);
+addCardValitiy.enableValidation();
+const profileValitiy = new FormValidator(settingsObject , creatCardForm);
+profileValitiy.enableValidation();
+
   function togglePopup(popup){
     popup.classList.toggle('popup_opened'); 
     if (popup.classList.contains("popup_opened")){
@@ -67,6 +85,7 @@ togglePopup(profilePopup);
 nameInput.value = profileName.textContent;
 jobInput.value = profileHobby.textContent;
 })
+
 function handleEditProfileFormSubmit(evt) {
 evt.preventDefault();
 profileName.textContent = nameInput.value;
@@ -79,18 +98,17 @@ togglePopup(profilePopup);
 
 //add card btm func open
 const openAddCardPopup = () =>{
- if (cardName.validity.valid === false){
-  btmSubmitAdd.disabled = "disabled"
-  btmSubmitAdd.classList.add("popup__button_disabled");
-}
+ // btmSubmitAdd.disabled = "disabled"
+ // btmSubmitAdd.classList.add("popup__button_disabled");
   togglePopup(popupAddCard)  
   creatCardForm.reset(); 
   }
-//funcsion work when click on x btn to close popup
-// add btn
+
 popupAddBtn.addEventListener("click",  function () {
 openAddCardPopup();
 });
+//funcsion work when click on x btn to close popup
+// add btn
 popupCloseBtn.addEventListener("click",  openAddCardPopup);
 //submit btn   
 // Connect the handler to the form:
@@ -99,54 +117,22 @@ profileForm.addEventListener("submit", handleEditProfileFormSubmit);
 //initialCards func
 //##########################################
 initialCards.forEach(function (arrElement){
-cardSection.append(addCard(arrElement.name , arrElement.link))
+  const card = new Card(arrElement.name , arrElement.link)
+ const cardElement = card.generateCard();
+cardSection.append(cardElement);
 });
 
-// add card function
-//#######################################
-function addCard(title, url){
-const template = document.querySelector(".card-tmp").content.querySelector(".card");
-//creat clone from template of card 
-const cardElement = template.cloneNode(true);
-const titleCard = cardElement.querySelector(".card__title").textContent = title;
-const imageCard = cardElement.querySelector(".card__image");
-imageCard.src = url;
-imageCard.alt = title ; 
-
-//delete card by click the btn
-const deleteBtn = cardElement.querySelector(".card__delete-button");
-deleteBtn.addEventListener("click", function (evt) {
-cardElement.remove();
-});
-
-//replace the like btn background
-const likeBtn = cardElement.querySelector(".card__like-button");
-likeBtn.addEventListener("click", function (evt) {
-const eventTarget = evt.target;
-eventTarget.classList.toggle("card__like-button_dark");  
-});
-
-imageCard.addEventListener("click", function() {
-togglePopup(popupImage);
-imageBig.src = url;
-popupImgParagraph.textContent = title;
-imageBig.alt = title;
-} );
-return cardElement;
-}
-
-popupImageCloseBtn.addEventListener("click" , function() {
-togglePopup(popupImage);
-} );
+creatCardForm.addEventListener("submit",  handleFormSubmitCardAdd);
 
 //function for submit add card form
 function handleFormSubmitCardAdd(evt) {
 evt.preventDefault();
-cardSection.prepend(addCard(cardName.value, cardImage.value)); 
-creatCardForm.reset(); 
+const card = new Card(cardName.value, cardImage.value);
+const cardElement = card.generateCard();
+cardSection.prepend(cardElement);
 openAddCardPopup();
 }
-creatCardForm.addEventListener("submit",  handleFormSubmitCardAdd);
+
 function eventListenerCloseEsc(evt){
   if(evt.key === "Escape"){
     popupList.find((popupElement) =>{
