@@ -21,10 +21,10 @@ return this._element
 
 _setEventListenersDelete(){
 this._element.querySelector(".card__delete-button").addEventListener("click", () => {
- this._handlDeleteClick()
+ this._handleDeleteClick()
 }
 )}
-_handlDeleteClick() {
+_handleDeleteClick() {
 this._element.remove();
 }
 _setEventListenersLike(){
@@ -33,25 +33,20 @@ evt.target.classList.toggle("card__like-button_dark");
 });
 }
 _setEventListenersPopupImage(){
-const popupImageCloseBtn = document.querySelector(".popup__close-btn_img");
 this._element.querySelector(".card__image").addEventListener("click" , () =>{
-this._handlPopupImage()
-})
-popupImageCloseBtn.addEventListener("click" , () =>{
-this._handlClosePopupImage()
+this._handlePopupImage()
 })
 
+
 }
-_handlPopupImage(){
+_handlePopupImage(){
 const _popupImage = document.querySelector(".popup_img").classList.add('popup_opened');
 const _popupImgParagraph = document.querySelector(".popup__img-pargraph");
 _popupImgParagraph.textContent = this.cardText;
 const image = document.querySelector(".popup__img-big").src = this.linkImage ;
 //image.alt = this.cardText ; 
 }
-_handlClosePopupImage(){
-const _popupImage = document.querySelector(".popup_img").classList.remove('popup_opened');    
-}
+
 
 }        
 

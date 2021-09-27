@@ -67,20 +67,20 @@ addCardValitiy.enableValidation();
 const profileValitiy = new FormValidator(settingsObject , creatCardForm);
 profileValitiy.enableValidation();
 
-  function togglePopup(popup){
-    popup.classList.toggle('popup_opened'); 
-    if (popup.classList.contains("popup_opened")){
+  function openPopup (popup){
+    popup.classList.add('popup_opened'); 
     document.addEventListener("click" , eventListenerCloseClick);
     document.addEventListener("keydown" , eventListenerCloseEsc);
-    }
-    else{
+  }
+  function closePopup (popup){
+    popup.classList.remove('popup_opened');
       document.removeEventListener("click" , eventListenerCloseClick);
       document.removeEventListener("keydown" , eventListenerCloseEsc);
-    }
+    
     }
 //funcsion work when click on edit btn
 editButton.addEventListener("click", function() {
-togglePopup(profilePopup);
+  openPopup(profilePopup);
 //if (profilePopup.classList.contains('popup_opened')){
 nameInput.value = profileName.textContent;
 jobInput.value = profileHobby.textContent;
@@ -90,17 +90,17 @@ function handleEditProfileFormSubmit(evt) {
 evt.preventDefault();
 profileName.textContent = nameInput.value;
 profileHobby.textContent = jobInput.value;
-togglePopup(profilePopup);
+closePopup(profilePopup);
 }
 profileCloseBtn.addEventListener("click",function() {
-togglePopup(profilePopup);
+  closePopup(profilePopup);
 });
 
 //add card btm func open
 const openAddCardPopup = () =>{
  // btmSubmitAdd.disabled = "disabled"
  // btmSubmitAdd.classList.add("popup__button_disabled");
-  togglePopup(popupAddCard)  
+ openPopup(popupAddCard)  
   creatCardForm.reset(); 
   }
 
@@ -109,7 +109,10 @@ openAddCardPopup();
 });
 //funcsion work when click on x btn to close popup
 // add btn
-popupCloseBtn.addEventListener("click",  openAddCardPopup);
+popupCloseBtn.addEventListener("click", () => {
+  closePopup(popupAddCard);
+
+});
 //submit btn   
 // Connect the handler to the form:
 // it will watch the submit event
@@ -117,34 +120,39 @@ profileForm.addEventListener("submit", handleEditProfileFormSubmit);
 //initialCards func
 //##########################################
 initialCards.forEach(function (arrElement){
-  const card = new Card(arrElement.name , arrElement.link)
- const cardElement = card.generateCard();
-cardSection.append(cardElement);
+cardSection.append( createCard(arrElement.name , arrElement.link));
 });
+popupImageCloseBtn.addEventListener("click" , () =>{
+  closePopup(popupImage);
+  })
 
 creatCardForm.addEventListener("submit",  handleFormSubmitCardAdd);
+
+function createCard(cardName, cardImage) {
+const card = new Card(cardName, cardImage);
+const cardElement = card.generateCard();
+ 
+return cardElement
+}  
 
 //function for submit add card form
 function handleFormSubmitCardAdd(evt) {
 evt.preventDefault();
-const card = new Card(cardName.value, cardImage.value);
-const cardElement = card.generateCard();
-cardSection.prepend(cardElement);
-openAddCardPopup();
+cardSection.prepend(createCard(cardName.value , cardImage.value));
+closePopup(popupAddCard);
 }
 
 function eventListenerCloseEsc(evt){
   if(evt.key === "Escape"){
-    popupList.find((popupElement) =>{
-    if (popupElement.classList.contains("popup_opened")){
-    togglePopup(popupElement);
-    creatCardForm.reset(); 
+  const popupElement = document.querySelector(".popup_opened");
+  closePopup(popupElement);
+  
+  }
     }
-    });          
-}}
+              
 function eventListenerCloseClick(evt){
   if(evt.target.classList.contains("popup")){
-    popupList.find((popupElement) =>{
-    if (popupElement.classList.contains("popup_opened")){
-    togglePopup(popupElement);
-    }})}}
+    const popupElement = document.querySelector(".popup_opened");
+    closePopup(popupElement);
+  }
+}
