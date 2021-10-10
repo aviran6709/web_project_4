@@ -4,7 +4,8 @@
   "description": "a profile and card image\r eround the world\r Photos and wonderful places and contains the following\r 1 responsive web for many screen\r *1280\r *1024\r *500\r *320\r 2 great lakes and parkes over us",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist && webpack --mode production",
+    "dev": "webpack serve --mode development"
   },
   "repository": {
     "type": "git",
@@ -16,8 +17,21 @@
     "url": "https://github.com/aviran6709/web_project_4/issues"
   },
   "homepage": "https://github.com/aviran6709/web_project_4#readme",
-  "dependencies": {},
+  "dependencies": {
+    "core-js": "^3.18.2"
+  },
   "devDependencies": {
-    "webpack": "^5.58.1"
+    "@babel/preset-env": "^7.15.8",
+    "autoprefixer": "^10.3.7",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.4.0",
+    "cssnano": "^5.0.8",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.4.2",
+    "postcss-loader": "^6.1.1",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1"
   }
 }
