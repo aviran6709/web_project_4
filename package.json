@@ -1,0 +1,23 @@
+{
+  "name": "web_project_4",
+  "version": "1.0.0",
+  "description": "a profile and card image\r eround the world\r Photos and wonderful places and contains the following\r 1 responsive web for many screen\r *1280\r *1024\r *500\r *320\r 2 great lakes and parkes over us",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aviran6709/web_project_4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aviran6709/web_project_4/issues"
+  },
+  "homepage": "https://github.com/aviran6709/web_project_4#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^5.58.1"
+  }
+}

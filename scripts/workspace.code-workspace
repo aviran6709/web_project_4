@@ -1,0 +1,17 @@
+{
+  "folders": [
+	{
+		"name": "New folder",
+		"path": "..\\..\\..\\..\\New folder"
+	},
+	{
+		"path": "..\\.."
+	},
+	{
+		"path": "..\\..\\..\\practicum"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "root project"
+  }
+}

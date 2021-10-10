@@ -104,7 +104,10 @@
 
       <div class="popup popup_profile">
         <div class="popup__continer">
-          <button type="button" class="popup__close-btn"></button>
+          <button
+            type="button"
+            class="popup__close-btn popup__profile-close-btn"
+          ></button>
           <h2 class="popup__title">Edit profile</h2>
           <form
             novalidate
@@ -118,7 +121,7 @@
               class="popup__input popup__input_user_name"
               type="text"
               placeholder="Name"
-              name="user-name"
+              name="name"
               required
               minlength="2"
               maxlength="40"
@@ -132,7 +135,7 @@
               class="popup__input popup__input_user_hobby"
               type="text"
               placeholder="About me"
-              name="hobby"
+              name="job"
               required
               minlength="2"
               maxlength="200"
@@ -167,7 +170,7 @@
               type="text"
               required
               placeholder="Title"
-              name="card-title"
+              name="name"
               minlength="1"
               maxlength="30"
             />
@@ -176,7 +179,7 @@
               id="form__input_card-image"
               class="popup__input popup__input_card_image"
               placeholder="Image link"
-              name="image-link"
+              name="link"
               type="url"
               required
             />
@@ -186,7 +189,12 @@
               class="popup__input-error"
             ></span>
             <button
-              class="popup__submit-btn popup__button popup__button-add"
+              class="
+                popup__submit-btn
+                popup__button
+                popup__button-add
+                popup__button_disabled
+              "
               type="submit"
               disabled
             >
@@ -218,9 +226,10 @@
         </div>
       </template>
     </div>
-    <script type="module" src="scripts/script.js"></script>
-    <script type="module" src="./scripts/FormValidator.js"></script>
-    <script type="module" src="./scripts/Card.js"></script>
+    <script type="module" src="./pages/index.js"></script>
+    <script type="module" src="./scripts//components/FormValidator.js"></script>
+    <script type="module" src="./scripts/components/Card.js"></script>
+    <script type="module" src="./scripts/components/Popup.js"></script>
   </body>
 </html>
 <!--  popup__input_user_name   use for like button -->
