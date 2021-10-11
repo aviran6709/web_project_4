@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   devtool: 'inline-source-map',
   entry: {
-    main: './src/index.js'
+    main: './src/pages/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -15,10 +15,9 @@ module.exports = {
     publicPath: ''
   },
   target: ['web', 'es5'],
-  stats: { children: true },
   mode: 'development',
   devServer: {
-    contentBase: path.resolve(__dirname, './dist'),
+    
     compress: true,
     port: 8080,
     open: true
@@ -27,6 +26,7 @@ module.exports = {
     rules: [ // this is an array of rules
       // add an object containing rules for Babel to it
       {
+          
         // a regular expression that searches for all js files
         test: /\.js$/,
         // all files must be processed by babel-loader

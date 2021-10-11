@@ -4,8 +4,8 @@
   "description": "a profile and card image\r eround the world\r Photos and wonderful places and contains the following\r 1 responsive web for many screen\r *1280\r *1024\r *500\r *320\r 2 great lakes and parkes over us",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && webpack --mode production",
-    "dev": "webpack serve --mode development"
+    "build": "rm -rf dist && webpack --mode=production",
+    "dev": "webpack serve --mode=development"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
     "core-js": "^3.18.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "autoprefixer": "^10.3.7",
     "babel-loader": "^8.2.2",
