@@ -40,15 +40,6 @@ this._handleCardClick({name: this.cardText ,link: this.linkImage})
 
 
 }
-_handlePopupImage(){
-const _popupImage = document.querySelector(".popup_img").classList.add('popup_opened');
-const _popupImgParagraph = document.querySelector(".popup__img-pargraph");
-_popupImgParagraph.textContent = this.cardText;
-const image = document.querySelector(".popup__img-big").src = this.linkImage ;
-//image.alt = this.cardText ; 
-}
-
-
 
 }        
 

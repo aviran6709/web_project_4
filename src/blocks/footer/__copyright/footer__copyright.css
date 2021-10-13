@@ -1,4 +1,4 @@
-.footer__coppyright {
+.footer__copyright {
   margin: 0px;
   padding: 0px;
   font-style: normal;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 630px) {
-  .footer__coppyright {
+  .footer__copyright {
     font-size: 14px;
     line-height: 17px;
   }

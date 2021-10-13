@@ -22,11 +22,11 @@ const card = new Card(item.name , item.link ,{handleCardClick: (item) => {
     }});
 const cardElement = card.generateCard();
 return cardElement
-}},cardSection)
+}},".cards")
 //initial 6 defulet card
 initialCardsList.renderItems();
 
-const popupAddCard = new PopupWithForm(".popup_add_card" , {hendelSubmit: (data) => {  
+const popupAddCard = new PopupWithForm(".popup_add_card" , {handleSubmit: (data) => {  
  const {name,link} = data
 const cardAdd = new Card(name, link , {handleCardClick: (data) => {
 const imageBig = new PopupWithImage(".popup_img", data)
@@ -37,11 +37,11 @@ popupAddCard.close();
 }} );
 nameInput.value = profileName.textContent;
 jobInput.value = profileHobby.textContent;
-const popupUserInfo = new PopupWithForm(".popup_profile" , {hendelSubmit: (data) => { 
+const popupUserInfo = new PopupWithForm(".popup_profile" , {handleSubmit: (data) => { 
     nameInput.value = profileName.textContent;
     jobInput.value = profileHobby.textContent;
     popupUserInfo.open();
-    popupTest1.setUserInfo(data)
+    popupProfile.setUserInfo(data)
     popupUserInfo.close();
     nameInput.value = profileName.textContent;
     jobInput.value = profileHobby.textContent;
@@ -49,7 +49,7 @@ const popupUserInfo = new PopupWithForm(".popup_profile" , {hendelSubmit: (data)
 
     }})
 
-const popupTest1 = new UserInfo(data); 
+const popupProfile = new UserInfo(data); 
 editButton.addEventListener("click" , () => {
 popupUserInfo.open();
 })

@@ -30,76 +30,10 @@
           <button type="button" class="profile__add-btn"></button>
         </section>
 
-        <section class="cards">
-          <!-- <div class="card">
-            <button class="card__delete-button" type="button"></button>
-            <img
-              class="card__image"
-              src="./images/Yosemite-Valley.jpg"
-              alt="Yosemite"
-            />
-            <div class="card__content">
-              <h2 class="card__title">Yosemite Valley</h2>
-              <button type="button" class="card__like-button"></button>
-            </div>
-          </div>
-          <div class="card">
-            <button class="card__delete-button" type="button"></button>
-            <img
-              class="card__image"
-              src="./images/Lake-Louise.jpg"
-              alt="lake from canda bc"
-            />
-            <div class="card__content">
-              <h2 class="card__title">Lake Louise</h2>
-              <button type="button" class="card__like-button"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              class="card__image"
-              src="./images/Bald-Mountains.jpg"
-              alt="Bald Mountains"
-            />
-            <div class="card__content">
-              <h2 class="card__title">Bald Mountains</h2>
-              <button type="button" class="card__like-button"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card__image" src="./images/Latemar.png" alt="Latemar" />
-            <div class="card__content">
-              <h2 class="card__title">Latemar</h2>
-              <button type="button" class="card__like-button"></button>
-            </div>
-          </div>
-
-          <div class="card">
-            <img
-              class="card__image"
-              src="./images/Vanoise-Nationa-park.png"
-              alt="Vanoise "
-            />
-            <div class="card__content">
-              <h2 class="card__title">Vanoise National Park</h2>
-              <button type="button" class="card__like-button"></button>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              class="card__image"
-              src="./images/Lago-di-Braies.png"
-              alt="Lago di Braies"
-            />
-            <div class="card__content">
-              <h2 class="card__title">Lago di Braies</h2>
-              <button type="button" class="card__like-button"></button>
-            </div>
-          </div> -->
-        </section>
+        <section class="cards"></section>
       </main>
       <footer class="footer">
-        <p class="footer__coppyright">&copy; 2021 Around The U.S.</p>
+        <p class="footer__copyright">&copy; 2021 Around The U.S.</p>
       </footer>
 
       <div class="popup popup_profile">
@@ -144,7 +78,11 @@
               id="form__input_user-hobby-error"
               class="popup__input-error"
             ></span>
-            <button class="popup__submit-btn popup__button" type="submit">
+            <button
+              class="popup__submit-btn popup__button"
+              type="submit"
+              disabled
+            >
               Save
             </button>
           </form>
@@ -156,7 +94,7 @@
             type="button"
             class="popup__close-btn popup__close-btn_add_card"
           ></button>
-          <h2 class="popup__title">new place</h2>
+          <h2 class="popup__title">New Place</h2>
           <form
             novalidate
             action="#"
@@ -204,7 +142,7 @@
         </div>
       </div>
 
-      <div class="popup popup_img">
+      <div class="popup_img popup">
         <div class="popup__img-continer">
           <button
             type="button"
@@ -228,4 +166,3 @@
     </div>
   </body>
 </html>
-<!--  popup__input_user_name   use for like button -->

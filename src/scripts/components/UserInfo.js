@@ -1,4 +1,5 @@
-import {profileName , profileHobby} from "../utils/constants.js"
+const profileName = document.querySelector(".profile__title");
+const profileHobby = document.querySelector(".profile__hobby");
 export default class UserInfo {
 constructor({name , job}){
     this._name = name
@@ -6,7 +7,7 @@ constructor({name , job}){
 
 }
 getUserInfo(){
-    retern (this._name , this._job)
+    return (this._name , this._job)
 }
 setUserInfo({name , job}){
     this._name = name
