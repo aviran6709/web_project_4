@@ -30,10 +30,12 @@ const {name,link} = data
 const cardAdd = new Card(name, link , {handleCardClick: (data) => {
 const imageBig = new PopupWithImage(".popup_img")
 imageBig.open(data);
+imageBig.setEventListeners()
 }});
 cardSection.prepend(cardAdd.generateCard());
 }});
 popupAddCard.setEventListeners();
+
 //popup profile
 const popupUserInfo = new PopupWithForm(".popup_profile" , {handleSubmit: (inputData) => { 
 popupProfile.setUserInfo(inputData);

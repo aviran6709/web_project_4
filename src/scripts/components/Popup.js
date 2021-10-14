@@ -13,7 +13,7 @@ document.addEventListener("keydown", this._handleEscClose)
 close(){
 this._popupElement.classList.remove('popup_opened');
 document.removeEventListener("keydown" , this._handleEscClose)
-document.removeEventListener("click" , this._handleOverlayClick)
+//document.removeEventListener("click" , this._handleOverlayClick)
 }
 
 _handleEscClose = (evt)=>{

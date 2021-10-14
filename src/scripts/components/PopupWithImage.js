@@ -13,5 +13,6 @@ const image = this._popupElement.querySelector(".popup__img-big")
 image.alt =  this._name;
 image.src = this._link ;
 super.open()
+super.setEventListeners()
 }
 }
