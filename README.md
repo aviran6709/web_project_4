@@ -1,6 +1,6 @@
 # Project 4: Around The U.S.
 
-###This site is sprint 4 that made for practicum
+###This site is sprint 8 that made for practicum
 a profile and card image
 eround the world
 Photos and wonderful places and contains the following

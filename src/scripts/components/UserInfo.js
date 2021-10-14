@@ -1,19 +1,17 @@
-const profileName = document.querySelector(".profile__title");
-const profileHobby = document.querySelector(".profile__hobby");
-export default class UserInfo {
-constructor({name , job}){
-    this._name = name
-    this._job = job
 
+export default class UserInfo {
+constructor({ userNameSelector, jobSelector }) {
+this.profileName = document.querySelector(userNameSelector);
+this.profileHobby = document.querySelector(jobSelector);
 }
 getUserInfo(){
-    return (this._name , this._job)
+
+return [this.profileName.textContent , this.profileHobby.textContent]
+
 }
 setUserInfo({name , job}){
-    this._name = name
-    this._job = job
-    profileName.textContent =  name;
-    profileHobby.textContent=  job ;
+    this.profileName.textContent = name ;
+    this.profileHobby.textContent=  job ;
 } 
    
 }

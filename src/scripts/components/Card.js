@@ -1,7 +1,7 @@
 export default class Card{
 constructor(  cardText , linkImage , {handleCardClick}){
-this.cardText = cardText;
-this.linkImage = linkImage;
+this._cardText = cardText;
+this._linkImage = linkImage;
 this._handleCardClick = handleCardClick;
 }
 
@@ -11,9 +11,9 @@ return cardElement
 }
 generateCard(){
 this._element = this._getTemplate();
-this._element.querySelector(".card__title").textContent = this.cardText;
-this._element.querySelector(".card__image").src = this.linkImage ;
-this._element.querySelector(".card__image").alt = this.cardText ; 
+this._element.querySelector(".card__title").textContent = this._cardText;
+this._element.querySelector(".card__image").src = this._linkImage ;
+this._element.querySelector(".card__image").alt = this._cardText ; 
 this._setEventListenersDelete();
 this._setEventListenersLike();
 this._setEventListenersPopupImage();
@@ -35,7 +35,7 @@ evt.target.classList.toggle("card__like-button_dark");
 }
 _setEventListenersPopupImage(){
 this._element.querySelector(".card__image").addEventListener("click" , () =>{
-this._handleCardClick({name: this.cardText ,link: this.linkImage})
+this._handleCardClick({name: this._cardText ,link: this._linkImage})
 })
 
 

@@ -22,6 +22,7 @@ this._fromElement = this._popupElement.querySelector(".popup__form");
 this._fromElement.addEventListener("submit", (evt) =>{
 evt.preventDefault();
 this._handleSubmit(this._getInputValues());
+this.close() 
 }
 )};
 

@@ -2,41 +2,34 @@
 export default class Popup {
 constructor(popupSelector){
 this._popupElement = document.querySelector(popupSelector);
-this.setEventListeners();
 
 }
-
 open(){
-    this._popupElement.classList.add('popup_opened'); 
-    document.addEventListener("keydown", (evt)=>{   
-    this._handleEscClose(evt)
-    })
+this._popupElement.classList.add('popup_opened');
+document.addEventListener("keydown", this._handleEscClose) 
+
 }
+
 close(){
 this._popupElement.classList.remove('popup_opened');
-document.removeEventListener("keydown" ,this._handleEscClose); 
+document.removeEventListener("keydown" , this._handleEscClose)
+document.removeEventListener("click" , this._handleOverlayClick)
 }
-_handleEscClose(evt){
+
+_handleEscClose = (evt)=>{
 if(evt.key === "Escape"){
+evt.preventDefault()
+this.close()
+}}
+
+_handleOverlayClick= (evt)=>{
+if(evt.target.classList.contains("popup") || evt.target.classList.contains(`popup__close-btn`)){
 this.close();
 }
 }
+// i realy dont understand how to use bind() func
 setEventListeners(){
-const btnCloseElement = this._popupElement.querySelector(".popup__close-btn").
-addEventListener("click" , () =>{
-this.close();
-
-})
-const popupClose = document.querySelector(".popup");
-document.addEventListener("click" , (evt) =>{
-if(evt.target.classList.contains("popup")){
-this.close();
-
-}
-
-})
-
-
+document.addEventListener("click" , this._handleOverlayClick)
 
 }
 }
