@@ -22,7 +22,7 @@ evt.preventDefault()
 this.close()
 }}
 
-_handleOverlayClick= (evt)=>{
+_handleOverlayClick = (evt)=>{
 if(evt.target.classList.contains("popup") || evt.target.classList.contains(`popup__close-btn`)){
 this.close();
 }
