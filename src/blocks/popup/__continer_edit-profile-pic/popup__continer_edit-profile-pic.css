@@ -1,0 +1,20 @@
+.popup__continer_edit-profile-pic {
+  width: 430px;
+  height: 272px;
+  margin: auto;
+}
+.popup__button_edit_profile-pic{
+   margin: 48px 0 36px; 
+
+}
+.popup__title_edit-pic{
+margin: 34px auto 60px;
+padding: 0;
+}
+.popup__content_edit_profile{
+margin: auto;
+}
+.card__likes{
+ margin: 0;
+ padding-top: 3px;
+}

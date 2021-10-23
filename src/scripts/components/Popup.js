@@ -27,9 +27,8 @@ if(evt.target.classList.contains("popup") || evt.target.classList.contains(`popu
 this.close();
 }
 }
-// i realy dont understand how to use bind() func
+
 setEventListeners(){
 document.addEventListener("click" , this._handleOverlayClick)
-
 }
 }

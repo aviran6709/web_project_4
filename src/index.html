@@ -14,18 +14,23 @@
       </header>
       <main class="main">
         <section class="profile">
+          <div class="profile__container">
           <img
             class="profile__pic"
             src="<%=require('./images/profile-pic.jpg')%>"
             alt="profile-pic"
           />
-
+          
+          <div class="profile__overlay">
+          <button type="button" class=" profile__edit-avatar-btn"></button>
+        </div>
+          </div>
           <div class="profile__content">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title"></h1>
 
             <button type="button" class="profile__edit-btn"></button>
 
-            <p class="profile__hobby">Explorer</p>
+            <p class="profile__hobby"></p>
           </div>
           <button type="button" class="profile__add-btn"></button>
         </section>
@@ -70,7 +75,7 @@
               class="popup__input popup__input_user_hobby"
               type="text"
               placeholder="About me"
-              name="job"
+              name="about"
               required
               minlength="2"
               maxlength="200"
@@ -80,7 +85,7 @@
               class="popup__input-error"
             ></span>
             <button
-              class="popup__submit-btn popup__button"
+              class="popup__submit-btn popup_profile__btn_popup_profile popup__button"
               type="submit"
               
             >
@@ -154,14 +159,79 @@
         </div>
       </div>
 
+      <div class="popup_delete-card popup">
+        <div class="popup__continer_delete-card">
+          <h2 class="popup__title_delete-card">Are you sure?</h2>
+          <button
+            type="button"
+            class="popup__close-btn popup__close-btn_delete_card"
+          ></button>
+          <button
+          class="popup__submit-btn popup__button popup__button_delete-card"
+          type="submit"
+          
+        >
+          yes
+        </button>
+        </div>
+      </div>
+
+      <div class="popup popup_edit-profile-pic ">
+        <div class="popup__continer popup__continer_edit-profile-pic ">
+          <button
+            type="button"
+            class="popup__close-btn"
+          ></button>
+          <h2 class="popup__title popup__title_edit-pic">Change profile picture</h2>
+          <form
+            novalidate
+            action="#"
+            method="POST"
+            name="popup-info"
+            class="popup__content popup__content_edit_profile popup__form"
+          >
+            
+            <input
+              id="form__input_edit-profile-pic"
+              class="popup__input form__input_edit_profile-pic"
+              placeholder="Image link"
+              name="link"
+              type="url"
+              required
+            />
+
+            <span
+              id="form__input_edit_profile-pic-error"
+              class="popup__input-error"
+            ></span>
+            <button
+              class="
+                popup__submit-btn
+                popup__button 
+                popup__button_edit_profile-pic
+              
+              "
+              type="submit"
+              
+            >
+              Save
+            </button>
+          </form>
+        </div>
+        </div>
+
       <template class="card-tmp">
         <div class="card">
           <button type="button" class="card__delete-button"></button>
           <img class="card__image" src=" " alt="Yosemite" />
           <div class="card__content">
             <h2 class="card__title"></h2>
+            <div class="card__like_column">
             <button type="button" class="card__like-button"></button>
+            <span class="card__likes">5</span>
           </div>
+          
+        </div>
         </div>
       </template>
     </div>
