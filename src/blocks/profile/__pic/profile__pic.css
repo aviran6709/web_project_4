@@ -14,8 +14,7 @@
 height: 26px;
 width: 26px;
 background:url("../../../images/pen.svg")no-repeat;
-background-size: cover
-;
+background-size: cover;
 border: 0;
 }
 .profile__overlay{
