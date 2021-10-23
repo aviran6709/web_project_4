@@ -93,10 +93,10 @@ if(res){
 //edit profile send PATCH requset to update profile from inputs value
 const popupUserInfo = new PopupWithForm(".popup_profile", {
   handleSubmit: (inputData) => {
-    changinTheButtonText("Saving..." , ".popup_profile__btn_popup_profile" )
+    changinTheButtonText("Saving..." , ".popup__submit-profile-btn" )
     api.setUserInfoToServer(inputData ,  {handelSaveClickProfilePopup:(info , res) =>{
 if(res){
-    changinTheButtonText("Save" , ".popup__button-add" );   
+    changinTheButtonText("Save" , ".popup__submit-profile-btn" );   
     popupProfile.setUserInfo(info);
     popupUserInfo.close(); 
 }     
