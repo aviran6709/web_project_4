@@ -6,6 +6,7 @@
   visibility: hidden;
   color: #ff0000;
   margin-bottom: 30px;
+  height: 15px;
 }
 
 .popup__input-error:nth-last-child(2) {

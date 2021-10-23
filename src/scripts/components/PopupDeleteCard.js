@@ -16,11 +16,11 @@ open(){
   super.open()
 }
 handleSaveBtn=()=>{
-  changinTheButtonText("saving..." , ".popup__button_delete-card")
+  changinTheButtonText("saving..." , ".popup__button-delete-card")
 api.deleteCardRequest(this._elementId , {handelYesClick : (IsResOk)=>{
   if(IsResOk){
   this.getRes(IsResOk);
-    changinTheButtonText("yes" , ".popup__button_delete-card")
+    changinTheButtonText("yes" , ".popup__button-delete-card")
   }
 }
 })

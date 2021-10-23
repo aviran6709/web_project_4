@@ -19,6 +19,7 @@ import {
   editButton,
   profileEditPicBtn,
   profilePic,
+  popupInputPicLink
 } from "../scripts/utils/constants.js";
 
 //enable Validation add card
@@ -27,6 +28,7 @@ addCardValitiy.enableValidation();
 //enable Validation edit profile
 const profileValitiy = new FormValidator(settingsObject, creatCardForm);
 profileValitiy.enableValidation();
+
 const editProfilePicValitiy = new FormValidator(settingsObject, popupProfilePic);
 editProfilePicValitiy.enableValidation();
 
@@ -50,7 +52,7 @@ if(item.owner._id !== popupProfile.getUserInfo()._id ){
   },
   ".cards"
 );
-// working.... need to add to dom
+
 const popupEditPic = new PopupWithForm(".popup_edit-profile-pic", {
     handleSubmit: (dataFromInputs) => {
         changinTheButtonText("Saving..." , ".popup__button-edit-profile-pic" )
@@ -59,6 +61,7 @@ api.setUserPicUrl(dataFromInputs , {handelSaveToDeleteClick : (linkOfProfilePic 
         changinTheButtonText("Save" , ".popup__button-edit-profile-pic" );   
         profilePic.setAttribute("src",linkOfProfilePic.avatar);
         popupEditPic.close()
+        popupInputPicLink.value = linkOfProfilePic.avatar;
     } 
 }
  } ) 
@@ -129,7 +132,6 @@ imageBig.setEventListeners();
 
 // btn to open edit profile popup
 editButton.addEventListener("click", () => {
-   // changinTheButtonText("dodo" , ".popup__submit-btn" );
   nameInput.value = popupProfile.getUserInfo().name;
   jobInput.value = popupProfile.getUserInfo().about;
   popupUserInfo.open();
@@ -139,6 +141,7 @@ popupAddBtn.addEventListener("click", () => {
   popupAddCard.open();
 });
 profileEditPicBtn.addEventListener("click", () => {
+popupInputPicLink.value = popupProfile.getUserInfo().avatar;;
 popupEditPic.open();
 });
 

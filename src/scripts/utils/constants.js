@@ -7,10 +7,11 @@ export const settingsObject = {
     errorClass: "popup__error_visible"
     };
 
-export const saveBtnElement = document.querySelector(".popup__button_delete-card");
+export const saveBtnElement = document.querySelector(".popup__button-delete-card");
+export const popupInputPicLink = document.querySelector(".popup__input_pic-link");
 export const profileName = document.querySelector(".profile__title");
 export const profilePic = document.querySelector(".profile__pic");
-export const popupProfilePic = document.querySelector(".popup__content_edit_profile");
+export const popupProfilePic = document.querySelector(".popup__content-edit-profile");
 export const profileEditPicBtn = document.querySelector(".profile__edit-avatar-btn");
 export const profileHobby = document.querySelector(".profile__hobby");
 export const editButton = document.querySelector(".profile__edit-btn");
