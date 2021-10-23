@@ -53,10 +53,10 @@ if(item.owner._id !== popupProfile.getUserInfo()._id ){
 // working.... need to add to dom
 const popupEditPic = new PopupWithForm(".popup_edit-profile-pic", {
     handleSubmit: (dataFromInputs) => {
-        changinTheButtonText("Saving..." , ".popup__button_edit_profile-pic" )
+        changinTheButtonText("Saving..." , ".popup__button-edit-profile-pic" )
 api.setUserPicUrl(dataFromInputs , {handelSaveToDeleteClick : (linkOfProfilePic , res ) => {
     if(res){
-        changinTheButtonText("Save" , ".popup__button_edit_profile-pic" );   
+        changinTheButtonText("Save" , ".popup__button-edit-profile-pic" );   
         profilePic.setAttribute("src",linkOfProfilePic.avatar);
         popupEditPic.close()
     } 
