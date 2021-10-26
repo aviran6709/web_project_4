@@ -1,36 +1,22 @@
-import { api } from "./Api.js";
 import Popup from "./Popup.js";
-import {changinTheButtonText} from "../../pages/index.js"
-import {saveBtnElement} from "../utils/constants.js";
 export default class PopupDeleteCard extends Popup{
-constructor(popSelector, elementId ,{getRes}){
+constructor(popSelector, {handleSaveBtn}){
 super(popSelector)
 super.setEventListeners();
-this.setEventListener();
-this._elementId = elementId;
-this.saveBtnElement = saveBtnElement;
-this.getRes = getRes;
+this._handleSaveBtn = handleSaveBtn;
+this.saveBtnElement = this._popupElement.querySelector(".popup__button-delete-card");
+this.setEventListener()
 }
-open(){
-  
-  super.open()
-}
-handleSaveBtn=()=>{
-  changinTheButtonText("saving..." , ".popup__button-delete-card")
-api.deleteCardRequest(this._elementId , {handelYesClick : (IsResOk)=>{
-  if(IsResOk){
-  this.getRes(IsResOk);
-    changinTheButtonText("yes" , ".popup__button-delete-card")
-  }
-}
-})
-}
+
+
 setEventListener(){
-    saveBtnElement.addEventListener("click",() =>{this.handleSaveBtn()});
+  this.saveBtnElement.addEventListener("click",this._handleSaveBtn);
    
 }
 
 close(){
-super.close()
+  super.close()
+  this.saveBtnElement.removeEventListener("click",this._handleSaveBtn);
 }
+
 }

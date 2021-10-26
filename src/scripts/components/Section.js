@@ -6,11 +6,11 @@ this._container = document.querySelector(containerSelector) ;
 }
 
 addItem = (element) => {
-this._container.append(element);
+this._container.prepend(element);
 }
 renderItems(items) {
 items.forEach(item => {  
-this.addItem(this._renderer(item));
+  this._container.append(this._renderer(item));
 });
   }
 }
