@@ -84,7 +84,6 @@ function createCard(data) {
     // Call Back for delete card
     handleDeleteClick: (cardId ,element) => {
       deleteCardpopup.open()
-      console.log(cardId)
       deleteCardpopup.setAction(()=>{
         changeTheButtonText("saving..." , ".popup__button-delete-card")
         api.deleteCardRequest(cardId).then(()=>{
