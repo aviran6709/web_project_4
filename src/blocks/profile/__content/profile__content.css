@@ -1,7 +1,6 @@
 .profile__content {
   display: grid;
   margin:22px 30px 0 21px ;
- 
   grid-template-columns: 2fr 1fr;
   row-gap: 16px;
   column-gap: 18px;
