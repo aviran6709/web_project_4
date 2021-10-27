@@ -14,7 +14,7 @@
       </header>
       <main class="main">
         <section class="profile">
-          <div class="profile__container">
+          <div class="profile__container-pic">
           <img
             class="profile__pic"
             src="<%=require('./images/profile-pic.jpg')%>"
@@ -25,6 +25,7 @@
           <button type="button" class=" profile__edit-avatar-btn"></button>
         </div>
           </div>
+          <div class="profile__container">
           <div class="profile__content">
             <h1 class="profile__title"></h1>
 
@@ -33,6 +34,7 @@
             <p class="profile__hobby"></p>
           </div>
           <button type="button" class="profile__add-btn"></button>
+        </div>
         </section>
 
         <section class="cards"></section>
@@ -97,7 +99,6 @@
       <div class="popup popup_add_card">
         <div class="popup__continer">
           <button
-          disabled
             type="button"
             class="popup__close-btn popup__close-btn_add_card"
           ></button>
@@ -140,8 +141,9 @@
                 popup__button-add
                 popup__button_disabled
               "
-              type="submit"
               disabled
+              type="submit"
+              
             >
               Create
             </button>

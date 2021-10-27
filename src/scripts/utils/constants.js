@@ -10,7 +10,7 @@ export const settingsObject = {
 export const saveBtnElement = document.querySelector(".popup__button-delete-card");
 export const popupInputPicLink = document.querySelector(".popup__input_pic-link");
 export const profileName = document.querySelector(".profile__title");
-export const profilePic = document.querySelector(".profile__pic");
+;
 export const popupProfilePic = document.querySelector(".popup__content-edit-profile");
 export const profileEditPicBtn = document.querySelector(".profile__edit-avatar-btn");
 export const profileHobby = document.querySelector(".profile__hobby");

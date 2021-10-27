@@ -29,6 +29,6 @@ this.close();
 }
 
 setEventListeners(){
-document.addEventListener("click" , this._handleOverlayClick)
+ this._popupElement.addEventListener("click" , this._handleOverlayClick)
 }
 }

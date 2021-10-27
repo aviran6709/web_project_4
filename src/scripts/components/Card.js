@@ -34,6 +34,7 @@ export default class Card {
     this._setEventListenersDelete();  
     this. _setEventListenersLike();
     this._setEventListenersPopupImage();
+    
     return this._element;
   }
   _getElementId() {
@@ -82,8 +83,8 @@ else{
 }
 
   filterCardId = (ownerId) => {
+    this.isLiked = false;
     if(this.cardOwner !== ownerId) {
-      this.isLiked = false;
     this._element.querySelector(".card__delete-button").remove()
     }
     this._likeArr.forEach((like) => {

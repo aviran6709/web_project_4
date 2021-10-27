@@ -20,59 +20,82 @@ import {
   profileEditPicBtn,
  
 } from "../scripts/utils/constants.js";
-
+let userId
 //enable Validation add card
 const addCardValitiy = new FormValidator(settingsObject, profilePopup);
 addCardValitiy.enableValidation();
 //enable Validation edit profile
 const profileValitiy = new FormValidator(settingsObject, creatCardForm);
 profileValitiy.enableValidation();
-
+//enable Validation edit profile pic
 const editProfilePicValitiy = new FormValidator(settingsObject, popupProfilePic);
 editProfilePicValitiy.enableValidation();
 
 const imageBig = new PopupWithImage(".popup_img");
-//creat obj
-
+const deleteCardpopup = new PopupDeleteCard(".popup_delete-card")
+const popupProfile = new UserInfo({
+  userNameSelector: ".profile__title",
+  jobSelector: ".profile__hobby",
+});
 const initialCardsList = new Section(
   { renderer: (item) => { return createCard(item) } }, ".cards")
-//render the defulet card to DOM using Api class
-api.getInitialCard().then((res) => {
-  initialCardsList.renderItems(res);
-}).catch(console.log)
 
-// add card popup obj
+// add card popup 
 const popupAddCard = new PopupWithForm(".popup_add_card", {
   handleSubmit: (data) => {
-    changinTheButtonText("Saving...", ".popup__button-add")
+    changeTheButtonText("Saving...", ".popup__button-add")
     api.setCardToServr(data).then((data) => {
       initialCardsList.addItem(createCard(data));
       popupAddCard.close()
-    }).finally(() => {
-      changinTheButtonText("Create", ".popup__button-add");
+    }).catch(console.log).finally(() => {
+      changeTheButtonText("Create", ".popup__button-add");
     })
   }
 })
+
+const popupEditPic = new PopupWithForm(".popup_edit-profile-pic", {
+  handleSubmit: (dataFromInputs) => {
+    changeTheButtonText("Saving...", ".popup__button-edit-profile-pic")
+    api.setUserPicUrl(dataFromInputs).then((res) => {
+      popupEditPic.close()
+      popupProfile.setUserInfo(res);
+
+    }).catch(console.log).finally(() => {
+      changeTheButtonText("Save", ".popup__button-edit-profile-pic");
+    })
+  }
+})
+
+//render the defulet card to DOM using Api class
+Promise.all([api.getInitialCard(),api.getUserInfo()]).then(([cardData , userInfo])=>{ 
+  userId = userInfo;
+  initialCardsList.renderItems(cardData);
+  popupProfile.setUserInfo(userInfo)
+}).catch(console.log)
+
+//functions
 function createCard(data) {
   const newCard = new Card(data, {
     // Call Back for BIg image
+    
     handleCardClick: (data) => {
       imageBig.open(data);
     },
     // Call Back for delete card
-    handleDeleteClick: (cardId, element) => {
-      const deleteCardpopup = new PopupDeleteCard(".popup_delete-card", {
-        handleSaveBtn: () => {
-          changinTheButtonText("saving..." , ".popup__button-delete-card")
-          api.deleteCardRequest(cardId).finally(() => {
-            changinTheButtonText("yes", ".popup__button-delete-card")
-            deleteCardpopup.close()
-            newCard.removeCard(element);
-          })
-        }
-      }
-      )
+    handleDeleteClick: (cardId ,element) => {
       deleteCardpopup.open()
+      console.log(cardId)
+      deleteCardpopup.setAction(()=>{
+        changeTheButtonText("saving..." , ".popup__button-delete-card")
+        api.deleteCardRequest(cardId).then(()=>{
+          deleteCardpopup.close()
+          newCard.removeCard(element);
+        }).catch(console.log)
+        .finally(() => {
+          changeTheButtonText("yes", ".popup__button-delete-card")  
+        })
+      }   
+      ) 
 // Call Back for like card
     }, handleLikeClick: (isLiked, cardId) => {
       if (!isLiked) {
@@ -89,50 +112,35 @@ function createCard(data) {
         return false
       }
     }
-  })
-
+  }) 
   const cardElement = newCard.generateCard();
-  newCard.filterCardId(popupProfile.getUserInfo()._id)
+  newCard.filterCardId(userId._id)
   return cardElement
 }
 
+const changeTheButtonText = (text, btnSelector) => {
+  const btnElement = document.querySelector(btnSelector);
+  btnElement.textContent = text
+}
 
-const popupEditPic = new PopupWithForm(".popup_edit-profile-pic", {
-  handleSubmit: (dataFromInputs) => {
-    changinTheButtonText("Saving...", ".popup__button-edit-profile-pic")
-    api.setUserPicUrl(dataFromInputs).then((res) => {
-      popupEditPic.close()
-      popupProfile.setUserInfo(res);
-
-    }).catch(console.log).finally(() => {
-      changinTheButtonText("Save", ".popup__button-edit-profile-pic");
-    })
-  }
-})
 
 //edit name & job send PATCH requset to update profile from inputs value
 const popupUserInfo = new PopupWithForm(".popup_profile", {
   handleSubmit: (inputData) => {
-    changinTheButtonText("Saving...", ".popup__submit-profile-btn")
+    changeTheButtonText("Saving...", ".popup__submit-profile-btn")
     api.setUserInfoToServer(inputData).then((res) => {
       popupProfile.setUserInfo(res);
       popupUserInfo.close()
     }
-    ).finally(() => {
-      changinTheButtonText("Save", ".popup__submit-profile-btn")
+    ).catch(console.log).finally(() => {
+      changeTheButtonText("Save", ".popup__submit-profile-btn")
     })
   }
 })
 
-//set the user info data from server  to the DOM
-api.getUserInfo().then((res) => {
-  popupProfile.setUserInfo(res);
-});
+
 // 
-const popupProfile = new UserInfo({
-  userNameSelector: ".profile__title",
-  jobSelector: ".profile__hobby",
-});
+
 
 
 
@@ -142,6 +150,7 @@ popupAddCard.setEventListeners();
 popupEditPic.setEventListeners();
 imageBig.setEventListeners();
 //popupAddCard.setEventListeners();
+deleteCardpopup.setEventListener();
 
 
 // btn to open edit profile popup
@@ -158,8 +167,4 @@ profileEditPicBtn.addEventListener("click", () => {
   popupEditPic.open();
 });
 
-export const changinTheButtonText = (text, btnSelector) => {
-  const btnElement = document.querySelector(btnSelector);
-  btnElement.textContent = text
-}
 

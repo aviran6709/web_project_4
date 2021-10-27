@@ -1,10 +1,17 @@
 .profile {
-  max-width: 880px;
+ width: 880px;
   margin: auto;
   font-style: normal;
   color: #ffffff;
   display: flex;
   margin-bottom: 50px;
+justify-content: space-between;
+}
+
+@media screen and (max-width: 1279px) {
+  .profile {
+    max-width: 880px;
+  }
 }
 @media screen and (max-width: 630px) {
   .profile {
