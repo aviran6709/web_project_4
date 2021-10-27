@@ -22,10 +22,10 @@ import {
 } from "../scripts/utils/constants.js";
 let userId
 //enable Validation add card
-const addCardValitiy = new FormValidator(settingsObject, profilePopup);
+const addCardValitiy = new FormValidator(settingsObject, creatCardForm );
 addCardValitiy.enableValidation();
 //enable Validation edit profile
-const profileValitiy = new FormValidator(settingsObject, creatCardForm);
+const profileValitiy = new FormValidator(settingsObject,profilePopup);
 profileValitiy.enableValidation();
 //enable Validation edit profile pic
 const editProfilePicValitiy = new FormValidator(settingsObject, popupProfilePic);
@@ -160,9 +160,11 @@ editButton.addEventListener("click", () => {
 });
 // btn to open addCard popup
 popupAddBtn.addEventListener("click", () => {
+  addCardValitiy.resetValidation()
   popupAddCard.open();
 });
 profileEditPicBtn.addEventListener("click", () => {
+  editProfilePicValitiy.resetValidation();
   popupEditPic.open();
 });
 
